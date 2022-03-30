@@ -1,0 +1,50 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Categories";
+    int count = 1;
+}
+
+<div class="container">
+
+    
+    <table style="margin-left:200px" class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Number
+                </th>
+                <th>
+                    Category name
+                </th>
+                <th>
+                    Settings
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cate in Model)
+            {
+                <tr>
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @cate.Name
+                    </td>
+                    <td>
+                        
+                        <a asp-action="Create"><button>Create</button></a>
+                        <a href="#"><button>Delete</button></a>
+                        <a asp-action="Update" asp-route-id="@cate.Id"><button>Update</button></a>
+
+
+
+                    </td>
+                </tr>
+                count++;
+            }
+
+        </tbody>
+    </table>
+</div>
+
